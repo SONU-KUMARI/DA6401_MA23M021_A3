@@ -60,8 +60,16 @@ This is a character-level sequence-to-sequence model that learns to map Latin-sc
 
 * Trains the transliteration model using the given configuration dictionary.
 * Evaluates on the test set and saves predictions to a CSV file.
-
+* The training process uses **teacher forcing** and **backpropagation through time (BPTT)** to train the model. Weights and biases are logged during training and testing, allowing for analysis of performance.
 ---
+
+
+### Attention Mechanism Integration
+
+The `attention-based Seq2Seq` model enhances the translation process by focusing on relevant parts of the input sequence during the decoding phase. The attention mechanism calculates attention weights, which indicate the importance of each input token for generating the corresponding output token. This allows the model to handle longer sequences more effectively and improve the accuracy of transliterations.
+
+The attention weights are extracted during inference and visualized using heatmaps, giving insights into which parts of the input the model attended to while generating the output sequence. This visualization helps in understanding the model's decision-making process and interpreting its behavior.
+
 
 ##  Output
 
@@ -88,27 +96,15 @@ best_config = {
     "teacher_forcing_ratio": 0.5
 }
 ````
-
-### Training
-
-```python
-def training_test(best_config):
-    # Train and evaluate the model on the Dakshina dataset
-    # Log the results to W&B and save predictions
-    pass
-```
-
-The training process uses **teacher forcing** and **backpropagation through time (BPTT)** to train the model. Weights and biases are logged during training and testing, allowing for analysis of performance.
-
 ---
 
 ##  Evaluation
 
 The model is evaluated using **word-level accuracy**, where the predicted word is compared to the actual target word. Additionally, attention weights are visualized if the attention mechanism is included.
 
-### Attention Heatmaps (Optional)
+### Attention Heatmaps
 
-If attention is implemented, heatmaps of the attention weights are generated to visualize how the model attends to different parts of the input during prediction.
+Attention is implemented, heatmaps of the attention weights are generated to visualize how the model attends to different parts of the input during prediction.
 
 ---
 
