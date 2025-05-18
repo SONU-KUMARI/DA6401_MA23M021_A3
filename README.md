@@ -109,36 +109,6 @@ Attention is implemented, heatmaps of the attention weights are generated to vis
 ---
 
 
-
-
-
-
-
-
-
-##  How to Run the Code
-
-### Step 1: Download the required files
-
-Make sure to have the following Python scripts in the same directory:
-
-* `training_test.py`
-* `model.py`
-
-### Step 2: Set up your W\&B API key
-
-Add your W\&B API key in the `training_test.py` file at line number 19 to enable logging of results.
-
-### Step 3: Run the training script
-
-Use the following command to run the training:
-
-```bash
-python training_test.py --wandb_entity myname --wandb_project myprojectname
-```
-
-
-
 ### Wandb Report Link:
 https://wandb.ai/ma23m021-iit-madras/MA23M021_A3_seq2seq/reports/MA23M021-Assignment-3--VmlldzoxMjgyMzA4Mw?accessToken=d6xibilzbyh24b2feph3uttysjcq55k9y77bg3gyns2iyf54qhg92cv0f3vff8lh
 
@@ -152,6 +122,6 @@ python train_Seq2Seq.py
 and
 
 ```
-train_Attention.py 
+python train_Attention.py 
 ```
 for both the files.
