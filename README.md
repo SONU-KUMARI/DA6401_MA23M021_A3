@@ -139,4 +139,19 @@ python training_test.py --wandb_entity myname --wandb_project myprojectname
 
 
 
+### Wandb Report Link:
+https://wandb.ai/ma23m021-iit-madras/MA23M021_A3_seq2seq/reports/MA23M021-Assignment-3--VmlldzoxMjgyMzA4Mw?accessToken=d6xibilzbyh24b2feph3uttysjcq55k9y77bg3gyns2iyf54qhg92cv0f3vff8lh
 
+
+## How to Run
+
+I have given ```MA23M021_A3_Seq2Seq.py``` and ```train_Seq2Seq.py``` files. And I have given ```MA23M021_A3_Attention.py``` and ```train_Attention.py``` files. These files have to be in same directory after downloading as I am importing the functions from this file in respective train files. You just have to change the address of data in the required location in respective train files of Vanilla and Attention. And use this command to run the code finally:
+```
+python train_Seq2Seq.py 
+```
+and
+
+```
+train_Attention.py 
+```
+for both the files.
