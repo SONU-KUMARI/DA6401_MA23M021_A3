@@ -24,9 +24,12 @@ Each line in the dataset contains:
 
 ## Model Overview
 
-This project implements a sequence-to-sequence (Seq2Seq) character-level transliteration model using PyTorch. It is designed to transliterate words from Latin-script Hindi to Devanagari using RNN-based architectures. The model supports configurable RNN cells (RNN, GRU, LSTM), bidirectional encoders, dropout, and attention mechanisms.
+This is a character-level sequence-to-sequence model that learns to map Latin-script Hindi words to their corresponding Devanagari representation. The architecture consists of:
+- **Encoder**: An RNN-based model that processes the input sequence.
+- **Decoder**: An RNN-based model that generates the output sequence.
+- **Attention Mechanism** (optional): Helps the model focus on specific parts of the input sequence while generating each token of the output.
 
-The model is a character-level encoder-decoder built using PyTorch. Key features:
+ Key features:
 - Flexible RNN cell types: **RNN**, **GRU**, or **LSTM**
 - Optionally **bidirectional** encoder
 - **Teacher forcing** for improved learning
@@ -38,7 +41,7 @@ The model is a character-level encoder-decoder built using PyTorch. Key features
 
 ## Functionality::
 
-### `build_vocab_and_prepare_batch(train_set, device)`
+### `Build_vocab_and_prepare_batch(train_set, device)`
 
 * Creates character-level vocabularies and index mappings for both scripts.Returns vocab dictionaries and a batch creation function.
 * Converts a batch of string pairs into padded tensors for training.Returns source and target tensors with appropriate token indices.
@@ -85,6 +88,59 @@ best_config = {
     "teacher_forcing_ratio": 0.5
 }
 ````
+
+### Training
+
+```python
+def training_test(best_config):
+    # Train and evaluate the model on the Dakshina dataset
+    # Log the results to W&B and save predictions
+    pass
+```
+
+The training process uses **teacher forcing** and **backpropagation through time (BPTT)** to train the model. Weights and biases are logged during training and testing, allowing for analysis of performance.
+
+---
+
+##  Evaluation
+
+The model is evaluated using **word-level accuracy**, where the predicted word is compared to the actual target word. Additionally, attention weights are visualized if the attention mechanism is included.
+
+### Attention Heatmaps (Optional)
+
+If attention is implemented, heatmaps of the attention weights are generated to visualize how the model attends to different parts of the input during prediction.
+
+---
+
+
+
+
+
+
+
+
+
+##  How to Run the Code
+
+### Step 1: Download the required files
+
+Make sure to have the following Python scripts in the same directory:
+
+* `training_test.py`
+* `model.py`
+
+### Step 2: Set up your W\&B API key
+
+Add your W\&B API key in the `training_test.py` file at line number 19 to enable logging of results.
+
+### Step 3: Run the training script
+
+Use the following command to run the training:
+
+```bash
+python training_test.py --wandb_entity myname --wandb_project myprojectname
+```
+
 
 
 
